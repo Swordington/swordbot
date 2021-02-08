@@ -5,7 +5,7 @@ exports.run = async (client, message, args, level) => {
     if (code.includes('client.token')) return message.channel.send('No thanks.') // Prevent attempts to get the token.
     try {
       // eslint-disable-next-line no-eval
-      const evaled = await (code.includes('await') ? eval('async function foo(){' + code + '}; foo()') : eval(code)) // Evaluate the code
+      const evaled = await (code.includes('await') ? eval(`(async () => { ${code} })()`) : eval(code)) // Evaluate the code
       const clean = await client.clean(client, evaled) // Clean the code
       if (clean.length > 1950) {
         const messages = Util.splitMessage(clean)
