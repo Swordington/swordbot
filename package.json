@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/the1sword/swordbot/issues"
   },
-  "homepage": "https://github.com/the1sword/swordbot#readme"
+  "homepage": "https://github.com/the1sword/swordbot#readme",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0",
+    "last-commit-log": "^3.1.1"
+  }
 }
