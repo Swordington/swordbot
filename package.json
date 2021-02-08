@@ -1,0 +1,19 @@
+{
+  "name": "swordbot",
+  "version": "1.0.0",
+  "description": "A terrible idea",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/the1sword/swordbot.git"
+  },
+  "author": "The1Sword",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/the1sword/swordbot/issues"
+  },
+  "homepage": "https://github.com/the1sword/swordbot#readme"
+}
