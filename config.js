@@ -6,14 +6,6 @@ const config = {
       prefix: '_',
       devPrefix: '-'
     },
-    defaults: {
-      guildSettings: {
-        blacklisted: false,
-        modLog: false,
-        actionLog: false,
-        memberLog: false
-      }
-    },
     permLevels: [ // Permissions
       {
         level: 0, // Basic level command; return true automatically so all users can run commands
@@ -62,11 +54,11 @@ const config = {
         name: 'Support Team',
         check: (message) => {
           try {
-            // For this, we get the guild, then the member of the guild, and then finally check if that guild member A) Exists in the guild and B) Check if the guild member has the support role.
-            const guild = message.client.guilds.fetch('793623405991559189')
+            // For this, we get the guild, then the member of the guild, and then finally check if that guild member A) Exists in the guild and B) Check if the guild member has the team role.
+            const guild = message.client.guilds.fetch('808408236235554816')
             const guildMember = guild.members.fetch(message.author.id)
             if (guildMember === undefined) return false
-            const hasRole = guildMember.roles.cache.has('793859785137192990') // Check for the Support Role
+            const hasRole = guildMember.roles.cache.has('808408621833519127') // Check for the project team role
             return (hasRole)
           } catch (e) {
             return false
