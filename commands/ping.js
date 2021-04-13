@@ -1,7 +1,15 @@
+const { MessageEmbed } = require("discord.js");
+
 exports.run = async (client, message, args, level) => {
 
-  const msg = await message.channel.send('Ping?')
-  msg.edit(`Pong! Latency is \`${msg.createdTimestamp - message.createdTimestamp}ms\`.\nAPI Latency is \`${Math.round(client.ws.ping)}ms\`.`)
+  const embed = new MessageEmbed()
+    .setTitle('<a:loading:831529809975705670> Ping?');
+  const msg = await message.channel.send(embed);
+
+  embed.setColor('GREEN').setTitle('Pong!').setDescription(`Latency is \`${msg.createdTimestamp - message.createdTimestamp}ms\`. Discord API Latency is \`${Math.round(client.ws.ping)}ms\`.`).setFooter(`${client.config.name} | Requested by: ${message.author.tag}`);
+
+  msg.edit(embed)
+  // msg.edit(`Pong! Latency is \`${msg.createdTimestamp - message.createdTimestamp}ms\`.\nAPI Latency is \`${Math.round(client.ws.ping)}ms\`.`)
 }
 
 exports.conf = {
