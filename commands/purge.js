@@ -1,8 +1,11 @@
 exports.run = async (client, message, args, level) => {
-    if (args[0] === undefined || isNaN(args[0])) return message.channel.send('Sorry! You need to provide a number of messages to delete over 1 and fewer than 100.');
+    const failCmd = () => {
+        message.channel.send('Sorry! You need to provide a number of messages to delete over 1 and fewer than 100.')
+    }
+  if (args[0] === undefined || isNaN(args[0])) return failCmd();
   const amount = args[0];
 
-  if (amount > 100 || amount < 1) return message.channel.send('Sorry! You need to provide a number of messages to delete over 1 and fewer than 100.');
+  if (amount > 100 || amount < 1) return failCmd();
 
   await message.delete();
 
