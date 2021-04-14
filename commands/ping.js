@@ -1,5 +1,10 @@
-const { MessageEmbed } = require('discord.js');
-
+const { Message, Client, MessageEmbed } = require('discord.js');
+/**
+ * @param  {Client} client
+ * @param  {Message} message
+ * @param  {Array<string>} args
+ * @param  {number} level
+ */
 exports.run = async (client, message, args, level) => {
     const embed = new MessageEmbed().setTitle('<a:loading:831529809975705670> Ping?');
     const msg = await message.channel.send(embed);

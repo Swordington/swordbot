@@ -1,3 +1,10 @@
+const { Message, Client } = require('discord.js');
+/**
+ * @param  {Client} client
+ * @param  {Message} message
+ * @param  {Array<string>} args
+ * @param  {number} level
+ */
 exports.run = async (client, message, args, level) => {
     // eslint-disable-line no-unused-vars
 

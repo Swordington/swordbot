@@ -1,3 +1,10 @@
+const { Message, Client } = require('discord.js');
+/**
+ * @param  {Client} client
+ * @param  {Message} message
+ * @param  {Array<string>} args
+ * @param  {number} level
+ */
 exports.run = async (client, message, args, level) => {
     const failCmd = () => {
         message.channel.send('Sorry! You need to provide a number of messages to delete over 1 and fewer than 100.');

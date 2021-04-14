@@ -1,7 +1,13 @@
+// eslint-disable-line no-unused-vars
+const { exec } = require('child_process');
+const { Util, Client, Message } = require('discord.js');
+/**
+ * @param  {Client} client
+ * @param  {Message} message
+ * @param  {Array<string>} args
+ * @param  {number} level
+ */
 exports.run = async (client, message, args, level) => {
-    // eslint-disable-line no-unused-vars
-    const { exec } = require('child_process');
-    const { Util } = require('discord.js');
     try {
         let output = 'No output.';
         exec(args.join(' '), (err, stdout, stderr) => {

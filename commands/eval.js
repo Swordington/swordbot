@@ -1,5 +1,11 @@
+const { Message, Client, Util } = require('discord.js');
+/**
+ * @param  {Client} client
+ * @param  {Message} message
+ * @param  {Array<string>} args
+ * @param  {number} level
+ */
 exports.run = async (client, message, args, level) => {
-    const { Util } = require('discord.js');
     const code = args.join(' '); // Generate string input.
     if (code.includes('client.token')) return message.channel.send('No thanks.'); // Prevent attempts to get the token.
     try {

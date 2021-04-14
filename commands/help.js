@@ -1,4 +1,10 @@
-const Discord = require('discord.js');
+const { Message, Client, MessageEmbed } = require('discord.js');
+/**
+ * @param  {Client} client
+ * @param  {Message} message
+ * @param  {Array<string>} args
+ * @param  {number} level
+ */
 exports.run = (client, message, args, level) => {
     // if no command, show all filtered
     if (!args[0]) {
@@ -20,7 +26,7 @@ exports.run = (client, message, args, level) => {
             }
             output += `\`${c.help.name}\` `;
         });
-        const embed = new Discord.MessageEmbed()
+        const embed = new MessageEmbed()
             .setTitle(`${client.config.name} Commands`)
             .setDescription(output.slice(0, -1))
             .setColor('#d309df')
@@ -32,7 +38,7 @@ exports.run = (client, message, args, level) => {
         if (client.commands.has(command)) {
             command = client.commands.get(command);
             if (level < client.levelCache[command.conf.permLevel]) return;
-            const embed = new Discord.MessageEmbed()
+            const embed = new MessageEmbed()
                 .setTitle(`${client.config.name} Command Help: \`${command.help.name}\``)
                 .setDescription(`${command.help.description}`)
                 .addField('Usage', `${client.settings.prefix}${command.help.usage}`, true)
