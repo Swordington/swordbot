@@ -1,25 +1,25 @@
 {
-  "name": "swordbot",
-  "version": "1.0.1",
-  "description": "A terrible idea",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/the1sword/swordbot.git"
-  },
-  "author": "The1Sword",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/the1sword/swordbot/issues"
-  },
-  "homepage": "https://github.com/the1sword/swordbot#readme",
-  "dependencies": {
-    "axios": "^0.21.1",
-    "discord.js": "^12.5.1",
-    "dotenv": "^8.2.0",
-    "last-commit-log": "^3.1.1"
-  }
+    "name": "swordbot",
+    "version": "1.0.1",
+    "description": "A terrible idea",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/the1sword/swordbot.git"
+    },
+    "author": "The1Sword",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/the1sword/swordbot/issues"
+    },
+    "homepage": "https://github.com/the1sword/swordbot#readme",
+    "dependencies": {
+        "axios": "^0.21.1",
+        "discord.js": "^12.5.1",
+        "dotenv": "^8.2.0",
+        "last-commit-log": "^3.1.1"
+    }
 }

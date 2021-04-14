@@ -12,9 +12,7 @@
             "request": "launch",
             "restart": true,
             "runtimeExecutable": "nodemon",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
+            "skipFiles": ["<node_internals>/**"],
             "type": "pwa-node"
         }
     ]
