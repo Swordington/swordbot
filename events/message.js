@@ -1,7 +1,9 @@
+const { Message, Client } = require('discord.js');
+/**
+ * @param  {Client} client
+ * @param  {Message} message
+ */
 module.exports = async (client, message) => {
-    // Require requirements to fulfill their requirements
-    const Discord = require('discord.js');
-
     // Prevent execution by bots and checks for messages without the prefix.
     if (message.author.bot || !message.content.startsWith(client.settings.prefix)) return;
 
@@ -9,21 +11,7 @@ module.exports = async (client, message) => {
 
     // Create arguments and command from message.
     const args = message.content.slice(client.settings.prefix.length).trim().split(/ +/g);
-    // Had to comment this out since it breaks the bot
-    /*
-    const flags = {}
-    for (const arg of args) {
-        const match = /^--?([^=]+)(?:=(.*))?/.exec(arg)
-        if (match) {
-            flags[match[1]] = match[2] ?? true
-            const index = args.indexOf(arg)
-            if (index > -1) {
-                args.splice(index, 1)
-            }
-        }
-    }
 
-    */
     const command = args.shift().toLowerCase();
 
     // Fetches the user.

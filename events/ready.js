@@ -1,4 +1,7 @@
-// Only triggered when the client fires the ready event
+const { Client } = require('discord.js');
+/**
+ * @param  {Client} client
+ */
 module.exports = async (client) => {
     console.log(`${client.user.tag}, ready to serve ${client.users.cache.size} users.`);
 

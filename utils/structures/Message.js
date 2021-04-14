@@ -14,7 +14,7 @@ Structures.extend('Message', (Message) => {
                             (flags, flag, i) => {
                                 flag = flag.replace(/  /g, ' ');
                                 const match = /^(--?)([^=]+)(?:=(.*))?$/.exec(flag);
-                                if (match) flags[match[1] === '--' ? 'double' : 'single']?.set(match[2].toLowerCase(), match[3] ?? true);
+                                if (match) flags[match[1] === '--' ? 'double' : 'single']?.set(match[2].toLowerCase(), match[3] || true);
                                 return flags;
                             },
                             { double: new Map(), single: new Map() },
@@ -22,7 +22,7 @@ Structures.extend('Message', (Message) => {
                     if (!double) return new Map([...flags.double, ...flags.single]);
                     const dKey = [...flags.double.keys()].find((k) => double.includes(k));
                     const sKey = [...flags.single.keys()].find((k) => single.includes(k));
-                    return flags.double.get(dKey) ?? flags.single.get(sKey);
+                    return flags.double.get(dKey) || flags.single.get(sKey);
                 },
             };
         }
