@@ -17,24 +17,24 @@ module.exports = async (client, message) => {
     // Fetches the user.
     if (message.guild && !message.member) await message.guild.fetchMember(message.author);
 
-    // Get the level.
-    const level = client.permlevel(message);
+    // Get the message.permLevel.
+    message.permLevel = client.permlevel(message);
 
-    if (process.env.MODE === 'DEV' && level !== 42) return;
+    if (process.env.MODE === 'DEV' && message.permLevel !== 42) return;
 
     // Retrieve command
     const cmd = client.commands.get(command) || client.commands.get(client.aliases.get(command));
 
     if (!cmd) return; // if command does not exist do nothing
 
-    // Check level and throw error
-    if (level < client.levelCache[cmd.conf.permLevel]) return;
+    // Check message.permLevel and throw error
+    if (message.permLevel < client.levelCache[cmd.conf.permLevel]) return;
 
-    message.author.permLevel = level;
+    message.author.permLevel = message.permLevel;
     console.log(
-        `(${client.config.permLevels.find((l) => l.level === level).level}) | ${message.author.username} [${message.author.id}] ran command ${
-            cmd.help.name
-        }`,
+        `(${client.config.permLevels.find((l) => l.message.permLevel === message.permLevel).message.permLevel}) | ${message.author.username} [${
+            message.author.id
+        }] ran command ${cmd.help.name}`,
     );
-    cmd.run(client, message, args, level);
+    cmd.run(client, message, args, message.permLevel);
 };

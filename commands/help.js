@@ -3,15 +3,14 @@ const { Message, Client, MessageEmbed } = require('discord.js');
  * @param  {Client} client
  * @param  {Message} message
  * @param  {Array<string>} args
- * @param  {number} level
  */
-exports.run = (client, message, args, level) => {
+exports.run = (client, message, args) => {
     // if no command, show all filtered
     if (!args[0]) {
         // filter commands
         const myCommands = message.guild
-            ? client.commands.filter((cmd) => client.levelCache[cmd.conf.permLevel] <= level)
-            : client.commands.filter((cmd) => client.levelCache[cmd.conf.permLevel] <= level && cmd.conf.guildOnly !== true);
+            ? client.commands.filter((cmd) => client.levelCache[cmd.conf.permLevel] <= message.permLevel)
+            : client.commands.filter((cmd) => client.levelCache[cmd.conf.permLevel] <= message.permLevel && cmd.conf.guildOnly !== true);
 
         let currentCategory = '';
         let output = '';
@@ -37,7 +36,7 @@ exports.run = (client, message, args, level) => {
         let command = args[0];
         if (client.commands.has(command)) {
             command = client.commands.get(command);
-            if (level < client.levelCache[command.conf.permLevel]) return;
+            if (message.permLevel < client.levelCache[command.conf.permLevel]) return;
             const embed = new MessageEmbed()
                 .setTitle(`${client.config.name} Command Help: \`${command.help.name}\``)
                 .setDescription(`${command.help.description}`)
@@ -52,7 +51,7 @@ exports.run = (client, message, args, level) => {
             if (!(command.conf.aliases.length === 0)) {
                 embed.addField('Aliases', `${command.conf.aliases.join(', ')}`, true);
             }
-            if (level === 42) {
+            if (message.permLevel === 42) {
                 embed.addField('Level', command.conf.permLevel, true);
             }
 

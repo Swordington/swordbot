@@ -3,9 +3,8 @@ const { Message, Client } = require('discord.js');
  * @param  {Client} client
  * @param  {Message} message
  * @param  {Array<string>} args
- * @param  {number} level
  */
-exports.run = async (client, message, args, level) => {
+exports.run = async (client, message, args) => {
     if (args[0] === undefined) return message.channel.send('A message is required');
     const msg = args.join(' ');
     message.channel.send(msg);

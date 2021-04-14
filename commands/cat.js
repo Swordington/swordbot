@@ -4,9 +4,8 @@ const { Message, Client, MessageEmbed } = require('discord.js');
  * @param  {Client} client
  * @param  {Message} message
  * @param  {Array<string>} args
- * @param  {number} level
  */
-exports.run = async (client, message, args, level) => {
+exports.run = async (client, message, args) => {
     let cat = await axios.get('https://api.thecatapi.com/v1/images/search', { headers: { 'x-api-key': process.env.CATAPIKEY } });
     cat = cat.data[0];
 

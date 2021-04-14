@@ -3,9 +3,8 @@ const { Message, Client } = require('discord.js');
  * @param  {Client} client
  * @param  {Message} message
  * @param  {Array<string>} args
- * @param  {number} level
  */
-exports.run = async (client, message, args, level) => {
+exports.run = async (client, message, args) => {
     // eslint-disable-line no-unused-vars
 
     if (!args[0]) return message.channel.send('You must provide a command to reload');

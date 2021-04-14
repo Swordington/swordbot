@@ -5,9 +5,8 @@ const { Util, Client, Message } = require('discord.js');
  * @param  {Client} client
  * @param  {Message} message
  * @param  {Array<string>} args
- * @param  {number} level
  */
-exports.run = async (client, message, args, level) => {
+exports.run = async (client, message, args) => {
     try {
         let output = 'No output.';
         exec(args.join(' '), (err, stdout, stderr) => {
